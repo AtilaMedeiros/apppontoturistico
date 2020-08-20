@@ -30,17 +30,17 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = '1%w&*_^w#v2d)mm(e2jy@e3z0j40ujk99an@2%xs79l0-8je#k'
-# SECRET_KEY = config('SECRET_KEY')
+# SECRET_KEY = '1%w&*_^w#v2d)mm(e2jy@e3z0j40ujk99an@2%xs79l0-8je#k'
+SECRET_KEY = config('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = config('DEBUG', default=False, cast=bool)
+#DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['apppontoturistico.herokuapp.com', '127.0.0.1:8000']
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['apppontoturistico.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition (NOVO DOCUMENTO)
