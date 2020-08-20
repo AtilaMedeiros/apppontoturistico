@@ -1,3 +1,4 @@
+# Automatically created by mypy
 .idea
 *.sqlite3
 .venv
