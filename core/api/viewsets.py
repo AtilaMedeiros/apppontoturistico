@@ -9,6 +9,7 @@ from core.models import PontoTuristico
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
 from rest_framework.viewsets import ModelViewSet
+from django.http import HttpResponse
 
 #from rest_framework.response import Response
 #from rest_framework.templatetags.rest_framework import add_query_param
@@ -26,12 +27,11 @@ class PontoTuristicoViewSet(ModelViewSet):
     #permission_classes = (IsAdminUser, )
     #permission_classes = (IsAuthenticatedOrReadOnly, )
     #permission_classes = (DjangoModelPermissions, )
-
     #authentication_casses = (TokenAuthentication, )
 
     filter_backends = (SearchFilter,)
     search_fields = ('nome', 'descricao', 'endereco__linha1')
-    lookup_field = 'nome'
+    lookup_field = 'id'
 
     def get_queryset(self):
         # return PontoTuristico.objects.filter(aprovado=True)
@@ -85,3 +85,14 @@ class PontoTuristicoViewSet(ModelViewSet):
     @action(detail=False, methods=['get'])
     def teste(self, request, pk=None):
         pass
+
+    @action(methods=['post'], detail=True)
+    def associa_atracoes(self, request, id):
+        atracoes = request.data['ids']
+
+        ponto = PontoTuristico.objects.get(id=id)
+
+        ponto.atracoes.set(atracoes)
+
+        ponto.save()
+        return HttpResponse('OK')

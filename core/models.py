@@ -1,3 +1,5 @@
+from tkinter.constants import CASCADE
+
 from django.db import models
 from setuptools.command import upload
 
@@ -7,6 +9,10 @@ from comentarios.models import Comentarios
 from endereco.models import Endereco
 
 # Create your models here.
+
+
+class DocIdentificacao(models.Model):
+    description = models.CharField(max_length=100)
 
 
 class PontoTuristico(models.Model):
@@ -22,6 +28,8 @@ class PontoTuristico(models.Model):
         Endereco, on_delete=models.CASCADE, null=True, blank=True)
     foto = models.ImageField(
         upload_to='pontos_turisticos', null=True, blank=True)
+    doc_identificacao = models.OneToOneField(
+        DocIdentificacao, on_delete=models.CASCADE, null=True, blank=True)
 
     @property
     def descricao_completa2(self):

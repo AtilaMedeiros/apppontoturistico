@@ -17,8 +17,9 @@ import os
 from decouple import config
 from dj_database_url import parse as dburl
 from django.conf.global_settings import MEDIA_ROOT, MEDIA_URL
-import django_heroku
 
+
+#import django_heroku
 # django_heroku.settings(locals())
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,17 +31,17 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# SECRET_KEY = '1%w&*_^w#v2d)mm(e2jy@e3z0j40ujk99an@2%xs79l0-8je#k'
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = '1%w&*_^w#v2d)mm(e2jy@e3z0j40ujk99an@2%xs79l0-8je#k'
+#SECRET_KEY = config('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
+#DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['apppontoturistico.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['apppontoturistico.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition (NOVO DOCUMENTO)
@@ -161,8 +162,10 @@ MEDIA_ROOT = 'imagens'
 MEDIA_URL = '/media/'
 
 
-REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
-}
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+REST_FRAMEWORK = {
+    # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10
+}
