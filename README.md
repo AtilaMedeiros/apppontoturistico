@@ -1,6 +1,8 @@
 # API Restful Pontos Turíticos
 
-## Python | Djando | Django Rest Framework | Backend
+##Python, Dajango e Django Rest Framework.
+
+### Aplicação backend desenvolvida durante a realização do curso "Criando poderosas API's RESTful com Django Rest Framework" para cadastrar pontos turísticos.
 
 ![Painel Admin](https://github.com/AtilaMedeiros/apppontoturistico/blob/master/admin.png)
 
