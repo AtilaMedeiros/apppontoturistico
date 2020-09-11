@@ -5,4 +5,7 @@ venv
 *pyc
 imagens
 __pycache__
+.mypy_cachegit 
+000*_*
 .mypy_cache
+.*
