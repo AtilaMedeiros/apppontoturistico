@@ -1,5 +1,8 @@
 # Automatically created by mypy
 .idea
 *.sqlite3
-.venv
+venv
 *pyc
+imagens
+__pycache__
+.mypy_cache
